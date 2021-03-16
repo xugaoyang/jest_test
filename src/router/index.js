@@ -21,7 +21,7 @@ const routes = [
   {
     path: '/test',
     name: 'test',
-    component: () => { return import('@/components/ItemList.vue') },
+    component: () => { return import('@/views/xgy/ItemList.vue') },
   },
 ]
 

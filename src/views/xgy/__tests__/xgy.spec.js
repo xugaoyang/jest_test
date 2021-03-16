@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import HelloWorld from '@/components/HelloWorld'
@@ -111,20 +112,21 @@ describe('test item testprop', () => {
     expect(wrapper.find('a').element.style.color).toBe('red')
   })
 })
-// 方法测试
+// 组件方法测试
 describe('test component methods', () => {
-  test('displays the bar when start is called', () => {
+  test('displays the bar when start is called', async () => {
     const wrapper = shallowMount(ProgressBar)
     expect(wrapper.classes()).toContain('hidden')
     wrapper.vm.start()
-    // TODO:re-check result，run failed
+    // dom没有响应更新，调用nextTick
+    await Vue.nextTick()
     expect(wrapper.classes()).not.toContain('hidden')
   })
-  test('set the bar to 100% when finish is called', () => {
+  test('set the bar to 100% when finish is called', async () => {
     const wrapper = shallowMount(ProgressBar)
     wrapper.vm.start()
     wrapper.vm.finish()
-    // TODO:re-check result，run failed
+    await Vue.nextTick()
     expect(wrapper.element.style.width).toBe('100%')
   })
   test('hides the bar when finish is called', () => {
@@ -139,15 +141,17 @@ describe('test component methods', () => {
     wrapper.vm.start()
     expect(wrapper.find('div').element.style.width).toBe('0%')
   })
-  test('increase width by 1% every 100ms after start call', () => {
+  test('increase width by 1% every 100ms after start call', async () => {
     const wrapper = shallowMount(ProgressBar)
     wrapper.vm.start()
     jest.runTimersToTime(100)
-    // TODO:re-check result，run failed
+    await Vue.nextTick()
     expect(wrapper.find('div').element.style.width).toBe('1%')
     jest.runTimersToTime(900)
+    await Vue.nextTick()
     expect(wrapper.find('div').element.style.width).toBe('10%')
     jest.runTimersToTime(3000)
+    await Vue.nextTick()
     expect(wrapper.find('div').element.style.width).toBe('40%')
   })
 

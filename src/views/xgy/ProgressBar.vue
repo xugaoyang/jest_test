@@ -29,6 +29,7 @@ export default {
     }
   },
   created() {
+
   },
   destroyed() {
 
@@ -36,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .progress-bar {
   position: fixed;
   top: 0px;
