@@ -47,32 +47,32 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### demo 调试路线
 
-- [ ] 安装，脚手架额外集成jest
+- [x] 安装，脚手架额外集成jest
 
-- [ ] 钩子beforeEach/afterEach在describe方法内外部的流向
+- [x] 钩子beforeEach/afterEach在describe方法内外部的流向
 
-- [ ] shallowMount和mount的区别
+- [x] shallowMount和mount的区别
 
-- [ ] dom的prop/class/style的验证
+- [x] dom的prop/class/style的验证
 
 
 
-- [ ] 测试组件方法的调用
+- [x] 测试组件方法的调用
 
 ```
 // 组件方法改变了data某个值的变化，或改变了元素的样式，验证此过程
 ```
-- [ ] 测试父组件的是否响应了子组件发射的事件
+- [x] 测试父组件的是否响应了子组件发射的事件
 
 ```
 // 子组件发射事件触发父组件data的某个属性值的变化，验证此过程
 ```
-- [ ] 模拟mock api调用
+- [x] 模拟mock api调用
 
 ```
 // 模拟接口返回的值是否一致，模拟异步接口执行
 ```
-- [ ] 测试表单的提交事件
+- [x] 测试表单的提交事件
 
 ```
 // @/components/Form.vue
